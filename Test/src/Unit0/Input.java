@@ -2,10 +2,11 @@ package Unit0;
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Eric Xu
+//Date - due 02/03/2020
+//Class - P2 Remington
+//Lab  - Unit0 Input
+
 
 import java.util.Scanner;
 
