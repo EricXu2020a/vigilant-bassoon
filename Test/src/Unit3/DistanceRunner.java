@@ -28,7 +28,8 @@ public class DistanceRunner
 
 		Distance test1 = new Distance(1, 1, 2,1);
 		test1.calcDistance();
-		test1.print();
+		//test1.print();
+		System.out.println(test1);
 
 		
 		//test2 (1,1,-2,2)
@@ -43,7 +44,8 @@ public class DistanceRunner
 
 		Distance test2 = new Distance(1, 1, -2,2);
 		test2.calcDistance();
-		test2.print();
+		//test2.print();
+		System.out.println(test2);
 		
 		
 		//test3 (1,1,0,0)
@@ -58,7 +60,8 @@ public class DistanceRunner
 
 		Distance test3 = new Distance(1, 1, 0, 0);
 		test3.calcDistance();
-		test3.print();
+		//test3.print();
+		System.out.println(test3);
 
 	}
 }

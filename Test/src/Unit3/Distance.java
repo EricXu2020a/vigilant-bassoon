@@ -48,13 +48,14 @@ public class Distance
 	
 	public void print()
 	{
-		System.out.println("distance == " + String.format("%.3f",distance));
+		//System.out.println("distance == " + String.format("%.3f",distance));
 	}
 	
 	//complete print or the toString
 
 	public String toString()
 	{
-		return "";
+		
+		return "distance == " + String.format("%.3f",distance);
 	}
 }

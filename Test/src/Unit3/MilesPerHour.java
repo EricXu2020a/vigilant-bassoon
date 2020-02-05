@@ -42,9 +42,9 @@ public class MilesPerHour
 
 	public void print()
 	{
-		System.out.print("\n");
-		System.out.print(distance + " miles in " + hours + " hour and " + minutes + " minutes = " + Math.round(+mph) + " MPH.");
-		System.out.print("\n");
+		//System.out.print("\n");
+		//System.out.print(distance + " miles in " + hours + " hour and " + minutes + " minutes = " + Math.round(+mph) + " MPH.");
+		//System.out.print("\n");
 		/*System.out.print(" miles in ");
 		System.out.print(+hours);
 		System.out.print(" hour and ");
@@ -58,6 +58,6 @@ public class MilesPerHour
 	
 	public String toString()
 	{
-		return "distance miles";
+		return distance + " miles in " + hours + " hour and " + minutes + " minutes = " + Math.round(+mph) + " MPH.";
 	}
 }

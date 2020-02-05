@@ -30,7 +30,7 @@ public class MPHRunner
 
 		MilesPerHour test = new MilesPerHour(dist, hrs, mins);
 		test.calcMPH();
-		test.print();
+		System.out.println(test);
 		
 		
 		//add more test cases
@@ -46,7 +46,7 @@ public class MPHRunner
 		
 		MilesPerHour test1 = new MilesPerHour(45, 0, 32);
 		test1.calcMPH();
-		test1.print();
+		System.out.println(test1);
 
 		
 		//test2 for (96,1,43)
@@ -60,7 +60,7 @@ public class MPHRunner
 		
 		MilesPerHour test2 = new MilesPerHour(96,1,43);
 		test2.calcMPH();
-		test2.print();
+		System.out.println(test2);
 
 		
 		//test3 for (100,2,25)
@@ -74,7 +74,7 @@ public class MPHRunner
 		
 		MilesPerHour test3 = new MilesPerHour(100,2,25);
 		test3.calcMPH();
-		test3.print();
+		System.out.println(test3);
 
 		
 		//test4 for (50,2,25)
@@ -88,7 +88,7 @@ public class MPHRunner
 
 		MilesPerHour test4 = new MilesPerHour(50,2,25);
 		test4.calcMPH();
-		test4.print();
+		System.out.println(test4);
 
 	}
 }
