@@ -15,14 +15,18 @@ public class StringEquality
 
 	public StringEquality()
 	{
+		setWords("","");
 	}
 
 	public StringEquality(String one, String two)
 	{
+		setWords(one,two);
 	}
 
 	public void setWords(String one, String two)
 	{
+		wordOne  = one;
+		wordTwo = two;		
 	}
 
 	public boolean checkEquality( )
@@ -32,6 +36,9 @@ public class StringEquality
 
 	public String toString()
 	{
+		if (wordOne.equals(wordTwo)) {
+			return wordOne + " has the same letters as " +wordTwo + "\n";
+		} else
 		return wordOne + " does not have the same letters as " + wordTwo + "\n";
 	}
 }
