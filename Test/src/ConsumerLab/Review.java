@@ -153,19 +153,41 @@ public class Review {
   public static double totalSentiment(String filename)
   {
     // read in the file contents into a string using the textToString method with the filename
-
+	  	String paragraph = textToString(filename);
     // set up a sentimentTotal variable
-
+		double sentimentTotal = 0;
     // loop through the file contents 
-
-       // find each word
-       // add in its sentimentVal
-       // set the file contents to start after this word
-   
-   
-
-
-
+		int nextSpace = paragraph.indexOf(SPACE);
+		int nextSlash = paragraph.indexOf('/');
+		int endOfWord,startOfWord;
+		
+		while (nextSpace > -1) {
+			// find each word
+			endOfWord = nextSpace - 1;
+			startOfWord = 0;
+			while (endOfWord >= 0 && (paragraph.charAt(endOfWord) < 48 || (paragraph.charAt(endOfWord) < 65 && paragraph.charAt(endOfWord) > 57)))
+				endOfWord--;
+			while (startOfWord < endOfWord + 1 && (paragraph.charAt(startOfWord) < 48 || (paragraph.charAt(startOfWord) > 57)))
+				startOfWord++;
+			// add in its sentimentVal
+			if (endOfWord + 1 > startOfWord) 
+			{
+				sentimentTotal += sentimentVal(paragraph.substring(startOfWord,endOfWord+1));
+				
+				sentimentTotal = (double) Math.round(sentimentTotal * 100) / 100;
+				
+			}
+			// set the file contents to start after this word
+			paragraph = paragraph.substring(nextSpace+1); //sets paragraph to start at word after space, removing the first word.
+			nextSpace = paragraph.indexOf(SPACE);
+			nextSlash = paragraph.indexOf('/');
+			
+			if (nextSlash != -1 && nextSlash < nextSpace)
+			{
+				nextSpace = nextSlash;
+			}
+		}
+		
    return sentimentTotal; 
   }
 
@@ -176,14 +198,39 @@ public class Review {
   public static int starRating(String filename)
   {
     // call the totalSentiment method with the fileName
-
+	  double sentiment = totalSentiment(filename);
     // determine number of stars between 0 and 4 based on totalSentiment value 
     int stars;
     // write if statements here
-
-
+    if (sentiment > 30) stars = 4;
+	else if (sentiment > 20) stars = 3;
+	else if (sentiment > 10) stars = 2;
+	else if (sentiment > 5) stars = 1;
+	else stars = 0;
   
     // return number of stars
     return stars; 
   }
+  
+  public static String fakeReview(String filename, boolean positive, boolean extreme) {
+		String review = textToString(filename);
+		int nextAdj = review.indexOf('*');
+		int spaceAfter;
+		String adj = "";
+		while (nextAdj > -1) {
+			spaceAfter = review.indexOf(SPACE, nextAdj);
+			adj = review.substring(nextAdj + 1, spaceAfter);
+			if (positive) {
+				if (sentimentVal(adj) <= 0) adj = randomPositiveAdj().toLowerCase();
+				while (extreme && sentimentVal(adj) < 1) adj = randomPositiveAdj().toLowerCase();
+			}
+			else {
+				if (sentimentVal(adj) >= 0) adj = randomPositiveAdj().toLowerCase();
+				while (extreme && sentimentVal(adj) > -1) adj = randomPositiveAdj().toLowerCase();
+			}
+			review = review.substring(0, nextAdj) + adj + review.substring(spaceAfter);
+			nextAdj = review.indexOf('*');
+		}
+		return review;
+	}
 }
