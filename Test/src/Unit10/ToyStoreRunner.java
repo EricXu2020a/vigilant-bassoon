@@ -12,7 +12,7 @@ public class ToyStoreRunner
 {
 	public static void main( String args[] )
 	{
-		ToyStore store = new ToyStore();
+		ToyStore28 store = new ToyStore28();
 		System.out.println(store); 
 		
 		String toys = "r8 gtr gtr gtr gtr r8 r8 r8 r8 huracan huracan huracan";

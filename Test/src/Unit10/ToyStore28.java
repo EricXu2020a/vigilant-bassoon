@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import static java.lang.System.*;
 
-public class ToyStore
+public class ToyStore28
 {
 	private ArrayList<Toy> toyList;
 
-	public ToyStore()
+	public ToyStore28()
 	{
 		toyList = new ArrayList<Toy>();
 	}
@@ -80,7 +80,13 @@ public class ToyStore
   		}
 
   	}  
-  	  
+  	
+  	public String myName()
+  	{
+  		return ("Eric Xu");
+  	}
+
+  	
 	public String toString()
 	{
 		return "" + toyList.toString();
