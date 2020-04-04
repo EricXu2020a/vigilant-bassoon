@@ -8,7 +8,6 @@ import java.util.Collections;
 public class Industry
 {
 	private String name;
-	//private Student[] studentList;
 	private ArrayList<Stock> stockList;
 	
 	public Industry()
@@ -30,7 +29,7 @@ public class Industry
 	
 	public void sort()
 	{
-		Collections.sort(stockList);   //works find now that Student implements Comparable
+		Collections.sort(stockList);   
 	}	
 	
 	public String getIndustryName()
@@ -68,12 +67,12 @@ public class Industry
 		return stockList.get(stockNum).getName();
 	}
 
-	public String getStockWithHighestAverage()
+	public String getStockHighestAvg()
 	{
 		return stockList.get(stockList.size()-1).getName();
 	}
 
-	public String getStockWithLowestAverage()
+	public String getStockLowestAvg()
 	{
 		return stockList.get(0).getName();
 	}

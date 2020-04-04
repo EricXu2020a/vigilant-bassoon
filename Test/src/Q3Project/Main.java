@@ -11,22 +11,21 @@ class Main {
 		
 		Scanner file = new Scanner(new File("src/Q3Project/stockstats.dat"));
 		String className = file.nextLine();
-		int numStudents = file.nextInt();
+		int numPrices = file.nextInt();
 		file.nextLine();
 		
-		Industry theClass = new Industry(className, numStudents);
+		Industry theIndustry = new Industry(className, numPrices);
 		
-		for(int i=0; i<numStudents; i++)
+		for(int i=0; i<numPrices; i++)
 		{
-			String stuName = file.nextLine();
-			String gradeList = file.nextLine();			
-			theClass.addStock(i,new Stock(stuName, gradeList));
+			String stockName = file.nextLine();
+			String priceList = file.nextLine();			
+			theIndustry.addStock(i,new Stock(stockName, priceList));
 		}
 		
-		out.println("\n\n"+theClass);
-		theClass.sort();
+		theIndustry.sort();
 
-		out.println("\n\n"+theClass);
+		out.println("\n\n"+theIndustry);
 		out.println("2020 highest stock prices");
 		out.println("AAL: $30.67");
 		out.println("DAL: $62.13");
@@ -51,9 +50,9 @@ class Main {
 		out.println("JBLU % decrease: 66.14%");
 		out.println();
 		
-		out.println("Highest Average = " + theClass.getStockWithHighestAverage());
-		out.println("Lowest Average = " + theClass.getStockWithLowestAverage());
+		out.println("Highest Average Stock Price = " + theIndustry.getStockHighestAvg());
+		out.println("Lowest Average Stock Price = " + theIndustry.getStockLowestAvg());
 		
-		out.println("Class average = " + theClass.getIndustryAverage());
+		out.println("Industry average = " + theIndustry.getIndustryAverage());
   }
 }
