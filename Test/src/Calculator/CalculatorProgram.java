@@ -89,7 +89,7 @@ public class CalculatorProgram {
         });
         window.add(btnBack);
 
-        btnMod = new JButton("%");
+        btnMod = new JButton("mod");
         btnMod.setBounds(x[2], y[1], BUTTON_WIDTH, BUTTON_HEIGHT);
         btnMod.setFont(btnFont);
         btnMod.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -193,7 +193,7 @@ public class CalculatorProgram {
         });
         window.add(btn9);
 
-        btnMul = new JButton("*");
+        btnMul = new JButton("x");
         btnMul.setBounds(x[3], y[2], BUTTON_WIDTH, BUTTON_HEIGHT);
         btnMul.setFont(btnFont);
         btnMul.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -458,53 +458,10 @@ public class CalculatorProgram {
         btnRoot.setVisible(false);
         window.add(btnRoot);
 
-        btnPower = new JButton("pow");
-        btnPower.setBounds(x[4], y[2], BUTTON_WIDTH, BUTTON_HEIGHT);
-        btnPower.setFont(smallTxtBtnFont);
-        btnPower.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnPower.addActionListener(event -> {
-            repaintFont();
-            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
-                if (go) {
-                    val = calc(val, inText.getText(), opt);
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
-                        inText.setText(String.valueOf((int) val));
-                    } else {
-                        inText.setText(String.valueOf(val));
-                    }
-                    opt = '^';
-                    go = false;
-                    addWrite = false;
-                } else {
-                    opt = '^';
-                }
-        });
-        btnPower.setVisible(false);
-        window.add(btnPower);
-
-        btnLog = new JButton("log");
-        btnLog.setBounds(x[4], y[3], BUTTON_WIDTH, BUTTON_HEIGHT);
-        btnLog.setFont(smallTxtBtnFont);
-        btnLog.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnLog.addActionListener(event -> {
-            if (Pattern.matches("([-]?\\d+[.]\\d*)|(\\d+)", inText.getText()))
-                if (go) {
-                    val = Math.log(Double.parseDouble(inText.getText()));
-                    if (Pattern.matches("[-]?[\\d]+[.][0]*", String.valueOf(val))) {
-                        inText.setText(String.valueOf((int) val));
-                    } else {
-                        inText.setText(String.valueOf(val));
-                    }
-                    opt = 'l';
-                    addWrite = false;
-                }
-        });
-        btnLog.setVisible(false);
-        window.add(btnLog);
 
         window.setLayout(null);
         window.setResizable(false);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // If Click into The Red Button => End The Processus
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
     }
 
@@ -538,14 +495,10 @@ public class CalculatorProgram {
         if (isScientificMode) {
             window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
             btnRoot.setVisible(false);
-            btnPower.setVisible(false);
-            btnLog.setVisible(false);
             isScientificMode = false;
         } else {
             window.setSize(WINDOW_WIDTH + 80, WINDOW_HEIGHT);
             btnRoot.setVisible(true);
-            btnPower.setVisible(true);
-            btnLog.setVisible(true);
             isScientificMode = true;
         }
     }
